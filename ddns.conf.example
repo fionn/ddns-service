@@ -1,0 +1,3 @@
+BASE_URL=dyn.dns.he.net
+HOSTNAME=machine.example.com
+DDNS_KEY=secretkey

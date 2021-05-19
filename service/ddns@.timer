@@ -1,0 +1,12 @@
+# vim: ft=systemd
+
+[Unit]
+Description=DDNS name timer for %i
+
+[Timer]
+Persistent=true
+OnCalendar=daily
+RandomizedDelaySec=20min
+
+[Install]
+WantedBy=timers.target
