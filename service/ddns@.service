@@ -7,7 +7,7 @@ After=network-online.target
 [Service]
 Type=oneshot
 EnvironmentFile=%h/.config/ddns/%i.conf
-ExecStart=bash -c 'curl -4s "https://$HOSTNAME:$DDNS_KEY@$BASE_URL/nic/update?hostname=$HOSTNAME"'
+ExecStart=bash -ceu 'curl -4fs "https://$HOSTNAME:$DDNS_KEY@$BASE_URL/nic/update?hostname=$HOSTNAME"'
 
 ProtectHome=read-only
 SystemCallArchitectures=native
@@ -15,6 +15,6 @@ LockPersonality=true
 MemoryDenyWriteExecute=true
 RestrictRealtime=true
 UMask=0777
-RestrictAddressFamilies=AF_INET AF_INET6
+RestrictAddressFamilies=AF_INET
 RestrictNamespaces=yes
 SystemCallFilter=~@privileged @resources
